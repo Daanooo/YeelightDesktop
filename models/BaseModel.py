@@ -5,7 +5,7 @@ from abc import ABC, abstractmethod
 class BaseModel(ABC):
     def __init__(self):
         self.dbName = 'data.db'
-        self.conn = sqlite3.connect(self.dbName)
+        self.conn = sqlite3.connect(self.dbName, detect_types=sqlite3.PARSE_DECLTYPES)
         self.cursor = self.conn.cursor()
         self.createTable()
 
